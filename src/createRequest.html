@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="../css/jquery.flipster.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <!--Import your style sheets here-->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <meta charset="UTF-8">
+    <title>Create request</title>
+    <style>
+        .vl {
+            border-left: 2px solid #ededed;
+            height: 380px;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 10%;
+        }
+    </style>
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center">
+    <form>
+    <div class="row">    
+    <div class="center col s6">
+        <div class="row center left">
+            <div class="input-field col s15">
+                <h5>Handyman: </h5>
+            </div>
+            <div class="input-field col s15">
+                <div class="chip">
+                    <i class="material-icons">person</i>
+                    <span id="handyman">Pera</span>
+                </div>
+            </div>    
+        </div>     
+                  
+        <div class="row center left">
+            <div class="input-field col">
+                <input id="speciality" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">Speciality</label>
+            </div>
+        </div>
+        <div class="row center left">
+            <div class="input-field col">
+                <input id="name" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">Name</label>
+            </div>
+        </div>
+        <div class="row center ">
+            <div class="input-field col">
+                <input id="number" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">tel. number</label>
+            </div>
+        </div>
+        <div class="row center left">
+            <div class="input-field col">
+                <input id="address" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">Address</label>
+            </div>
+        </div>
+        <div class="row center left">
+            <div class="input-field">
+            <div class="chip">
+                <i class="material-icons">attach_money</i>
+                <span id="wage">50</span>
+            </div>
+            <div class="chip">
+                <i class="material-icons">star</i>
+                <span id="rating">4.8/5</span>
+            </div>
+            <div class="chip">
+                <i class="material-icons">build</i>
+                <span id="jobsDone">13</span>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="vl"></div>
+
+    <div class="col s6">
+        <div class="row center">
+            <div class="input-field col s15">
+                <h5>Create request:</h5>           
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15">
+                <input id="requestStartDate" type="text" class="datepicker" placeholder="Start date">                            
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15">
+                <input id="requestEndDate" type="text" class="datepicker" placeholder="End date">
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15">
+                <input id="requestNumber" type="text" class="validate">
+                <label class="active" for="first_name2">Tel. number</label>
+            </div>
+        </div>        
+        <div class="row center">
+            <div class="input-field col s7">
+                <input id="requestAddress" type="text" class="validate">
+                <label class="active" for="first_name2">Address</label>
+            </div>
+            <div id="maps" class="input-field col s5 hoverable">
+                <img src="../assets/images/maps-icon.png">
+            </div>
+        </div>                
+        <div class="row center">
+            <div class="input-field col s7">
+                <select id="requestPaymentType">
+                    <option value="cash">Cash</option>
+                    <option value="card">Card</option>
+                </select>
+                <label>Payment type</label>
+            </div>
+            <div class="input-field col s5">
+                <input type="checkbox" id="requestUrgent"/>
+                <label for="requestUrgent">Urgent</span>
+            </div>
+            
+        </div>
+    </div>
+    </div>     
+    <div class="row center">
+        <h6 id="errorMessage" class="red"></h6>
+    </div>
+    <div class="row center">
+        <a id="cancel" class="waves-effect waves-light btn grey">CANCEL</a>            
+        <a id="request" class="waves-effect waves-light btn blue">CREATE REQUEST</a>
+    </div>
+    </form>
+    
+</body>
+
+<script>
+    window.$ = window.jQuery = require('../js/libs/jquery.min.js');
+</script>
+<script src="../js/libs/hammer.min.js" onload="window.Hammer = module.exports;"></script>
+<script src="../js/libs/materialize.min.js"></script>
+<!--Import your js scripts here  -->
+<script src="../js/app.js"></script>
+<script src="createRequest.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    
+    $('.datepicker').on('mousedown',function(event){
+        event.preventDefault();
+    })
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        closeOnSelect: false // Close upon selecting a date,
+    });
+    $(document).ready(function() {
+        $('.validate').updateTextFields();
+    });
+</script>
+
+</html>

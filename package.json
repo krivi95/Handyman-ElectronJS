@@ -1,0 +1,16 @@
+{
+  "name": "Handyman",
+  "version": "1.0.0",
+  "description": "electron tutorial - test app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "nikola krivacevic",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^6.0.4",
+    "fetch": "^1.1.0",
+    "materialize-social": "^1.0.3"
+  }
+}

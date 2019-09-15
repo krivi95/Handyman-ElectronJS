@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="../css/jquery.flipster.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <!--Import your style sheets here-->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <meta charset="UTF-8">
+    <title>Handyman info</title>
+    <style>
+        .vl {
+            border-left: 2px solid #ededed;
+            height: 380px;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 10%;
+        }
+    </style>
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center">
+    <form>
+    <div class="row">    
+    <div class="center col s6">
+        <div class="row center">
+            <div class="input-field col s15">
+                <h5>Handyman: </h5>
+            </div>
+            <div class="input-field col s15">
+                <div class="chip">
+                    <i class="material-icons">person</i>
+                    <span id="handyman">Pera</span>
+                </div>
+            </div>    
+        </div>     
+                  
+        <div class="row center">
+            <div class="input-field col s15 offset-s1">
+                <input id="speciality" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">Speciality</label>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15 offset-s1">
+                <input id="name" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">Name</label>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15 offset-s1">
+                <input id="number" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">tel. number</label>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15 offset-s1">
+                <input id="address" type="text" class="validate" readonly>
+                <label class="active" for="first_name2">Address</label>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15 offset-s1">
+            <div class="chip">
+                <i class="material-icons">attach_money</i>
+                <span id="wage">50</span>
+            </div>
+            <div class="chip">
+                <i class="material-icons">star</i>
+                <span id="rating">4.8/5</span>
+            </div>
+            <div class="chip">
+                <i class="material-icons">build</i>
+                <span id="jobsDone">13</span>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <h6 id="errorMessage" class="red"></h6>
+        </div>
+    </div>
+    
+    <div class="vl"></div>
+
+    <div class="col s6">
+        <div class="row center">
+            <div class="input-field col s15">
+                <h5>Comments:</h5>           
+            </div>
+        </div>
+        <div id="comments"></div>
+        
+    </div>
+    </div> 
+    <div class="row center">
+        <a id="cancel" class="waves-effect waves-light btn grey">CANCEL</a>            
+        <a id="request" class="waves-effect waves-light btn blue" style="display: none">CREATE REQUEST</a>
+    </div>
+    </form>
+    
+</body>
+
+<script>
+    window.$ = window.jQuery = require('../js/libs/jquery.min.js');
+</script>
+<script src="../js/libs/hammer.min.js" onload="window.Hammer = module.exports;"></script>
+<script src="../js/libs/materialize.min.js"></script>
+<!--Import your js scripts here  -->
+<script src="../js/app.js"></script>
+<script src="handymanView.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.validate').updateTextFields();
+    });
+</script>
+
+
+</html>

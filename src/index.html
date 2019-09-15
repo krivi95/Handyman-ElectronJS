@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="../css/jquery.flipster.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <!--Import your style sheets here-->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <meta charset="UTF-8">
+    <title>Handyman</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="#" id="home" class="brand-logo">
+                <i class="large material-icons">build</i>
+                <span>Handyman</span>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a id="login"><h4>Login</h4></a></li>
+                <li><a id="register"><h4>Register</h4></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">arrow_drop_down</i>Advanced search
+            </div>
+            <div class="collapsible-body eeeeee grey lighten-5">
+                <form class="center container">
+                    <div class="row center">
+                        <div class="input-field col s4">
+                            <select id="type">
+                                <option value="all">All</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="carpenter">Carpenter</option>
+                                <option value="painter">Painter</option>
+                                <option value="gardener">Gardener</option>
+                                <option value="general">General</option>
+                            </select>
+                            <label>Speciality</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="startDate" type="text" class="datepicker" placeholder="Start date">                            
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="endDate" type="text" class="datepicker" placeholder="End date">
+                        </div>
+                    </div>
+                    <div class="row center"> 
+                        <div class="input-field col s2 offset-s1">
+                            <label>Min jobs done:</label>
+                        </div>             
+                        <div class="input-field col s3">   
+                            <p class="range-field">
+                                <input id="jobsDone" type="range" id="test5" min="0" max="100" value="0"/>
+                            </p>
+                        </div>
+                        <div class="input-field col s1 offset-s1">
+                            <label>Daily rate:</label>
+                        </div>  
+                        <div class="input-field col s3">   
+                            <p class="range-field">
+                                <input id="wage" type="range" id="test5" min="0" max="100" value="0" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row ">                                 
+                        <a id="search" class="waves-effect waves-light btn blue">Search</a>
+                    </div>
+                </form>
+          </div>
+        </li>
+    </ul>
+
+    <div id="handymen">      
+        <div id="spinner" class="container center">  
+            <div class="preloader-wrapper big active center">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                    <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+
+<script>
+    window.$ = window.jQuery = require('../js/libs/jquery.min.js');
+</script>
+<script src="../js/libs/hammer.min.js" onload="window.Hammer = module.exports;"></script>
+<script src="../js/libs/materialize.min.js"></script>
+<!--Import your js scripts here  -->
+<script src="../js/app.js"></script>
+<script src="index.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    $('.datepicker').on('mousedown',function(event){
+        event.preventDefault();
+    })
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year,
+        closeOnSelect: false // Close upon selecting a date,
+   });
+</script>
+
+
+</html>

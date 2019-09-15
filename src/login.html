@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="../css/jquery.flipster.min.css">
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <!--Import your style sheets here-->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center">
+    <form>
+        <div class="row center">
+            <div class="input-field col s15">
+                <input id="username" type="text" class="validate">
+                <label class="active" for="first_name2">Username</label>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s15">
+                <input id="password" type="password" class="validate">
+                <label class="active" for="first_name2">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <a id="cancel" class="waves-effect waves-light btn grey">CANCEL</a>            
+            <a id="login" class="waves-effect waves-light btn blue">LOGIN</a>
+        </div>
+        <div class="row">
+            <h6 id="errorMessage" class="red"></h6>
+        </div>
+    </form>
+
+</body>
+
+<script>
+    window.$ = window.jQuery = require('../js/libs/jquery.min.js');
+</script>
+<script src="../js/libs/hammer.min.js" onload="window.Hammer = module.exports;"></script>
+<script src="../js/libs/materialize.min.js"></script>
+<!--Import your js scripts here  -->
+<script src="../js/app.js"></script>
+<script src="login.js"></script>
+
+
+</html>
