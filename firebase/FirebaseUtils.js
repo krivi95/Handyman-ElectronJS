@@ -154,7 +154,9 @@ class FirebaseUtils{
       if(requestsExist){
         let requests = [];
         for(let key in allRequests){
-          requests.push(allRequests[key]);
+          if(allRequests[key].user == username){
+            requests.push(allRequests[key]);
+          }
         }
         return requests
       }

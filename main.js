@@ -5,7 +5,7 @@ const path = require('path');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 //disable dev tools
-// process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'production';
 
 let mainWindow;
 let addItemsWindow;
@@ -18,7 +18,8 @@ app.on('ready', function () {
         height: 800,
         //resizable: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            devTools: false
         }
     });
     
@@ -36,7 +37,7 @@ app.on('ready', function () {
     //Bild menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
     //Insert manu
-    Menu.setApplicationMenu(mainMenu);
+    Menu.setApplicationMenu(null);
 
     //setting notification api
     if (process.platform === 'win32') {      

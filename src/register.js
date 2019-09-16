@@ -22,12 +22,16 @@ registerButton.addEventListener('click', async function(event){
     const number = document.getElementById('number').value;
     const address = document.getElementById('address').value;    
     if(username == "" || password == "" || firstName == "" || lastName == "" || number == "" || address == ""){
-        errorMessageBox.innerHTML = "Please enter all information.."
+        errorMessageBox.innerHTML = "Please enter all information."
         return;
     }
     
-    FirebaseUtils.createNewUser(username, password, firstName, lastName, number, address, type);
     const user = await FirebaseUtils.getUserByName(username);
+    if(user){
+        errorMessageBox.innerHTML = "Username already taken."
+        return;
+    }
+    FirebaseUtils.createNewUser(username, password, firstName, lastName, number, address, type);
     
     event.preventDefault();
     ipcRenderer.send('register:user', user);
