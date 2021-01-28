@@ -9,7 +9,7 @@
   "author": "nikola krivacevic",
   "license": "MIT",
   "dependencies": {
-    "electron": "^6.0.4",
+    "electron": "^9.4.0",
     "fetch": "^1.1.0",
     "materialize-social": "^1.0.3"
   }
